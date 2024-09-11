@@ -2,22 +2,15 @@
 
 namespace TelCoColorCoder
 {
-	const char* MajorColorNames[] = {
-        "White", "Red", "Black", "Yellow", "Violet"
-    };
-    int numberOfMajorColors =
-        sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
+	const char* MajorColorNames[] = {"White", "Red", "Black", "Yellow", "Violet"};
+    int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
 	
-	const char* MinorColorNames[] = {
-        "Blue", "Orange", "Green", "Brown", "Slate"
-    };
-    int numberOfMinorColors =
-        sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
+	const char* MinorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+    int numberOfMinorColors =sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
 		
 
-	ColorPair::ColorPair(MajorColor major, MinorColor minor):
-                majorColor(major), minorColor(minor)
-            {}
+	ColorPair::ColorPair(MajorColor major, MinorColor minor): majorColor(major), minorColor(minor)
+    {}
 			
 	MajorColor ColorPair::getMajor() 
 	{
@@ -29,7 +22,7 @@ namespace TelCoColorCoder
         return minorColor;
     }
 			
-	std::string ToString() 
+	std::string ColorPair::ToString() 
 	{
 		std::string colorPairStr = MajorColorNames[majorColor];
 		colorPairStr += " ";
@@ -54,7 +47,7 @@ namespace TelCoColorCoder
 	
 	std::string ColorPairReferenceManual()
     {
-        std::string message = "Manual\n";
+        std::string message = "Color Pair Manual\n";
         for(int pairNumber = 1; pairNumber <= (numberOfMajorColors * numberOfMinorColors); pairNumber++) {
             TelCoColorCoder::ColorPair colorPair = TelCoColorCoder::GetColorFromPairNumber(pairNumber);
             message += std::to_string(pairNumber);
